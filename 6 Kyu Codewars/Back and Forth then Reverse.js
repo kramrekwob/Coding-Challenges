@@ -1,25 +1,25 @@
 function arrange(s) {
 
-    let total=s.length;
+    let total = s.length;
 
-    let pos= 1;
-      
-    let answer= [];
-    
-    for (let i=0; i < s.length/2 ; i++){
-    if (pos>0){
-    answer.push(s[i]);
-    answer.push(s[total-1-i]);
+    let pos = 1;
+
+    let answer = [];
+
+    for (let i = 0; i < s.length / 2; i++) {
+        if (pos > 0) {
+            answer.push(s[i]);
+            answer.push(s[total - 1 - i]);
+        }
+        if (pos < 0) {
+            answer.push(s[total - i - 1]);
+            answer.push(s[i]);
+        }
+        pos *= -1;
     }
-    if (pos<0){
-    answer.push(s[total-i-1]);
-    answer.push(s[i]);
-    }
-    pos *= -1;
-    }
-    if (s.length%2===1) answer.pop();
+    if (s.length % 2 === 1) answer.pop();
     return answer;
-    }
+}
 
 //initial solution timed out for huge test cases
 /*
