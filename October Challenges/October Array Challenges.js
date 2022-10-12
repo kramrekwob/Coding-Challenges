@@ -66,8 +66,36 @@ function sortAsAndThrees(arr){
         //otherwise letter is back of the queue and goes in array3 category
         else array3.push(arr[i]);
     //return 3 arrays concatenated
-    let array12 = array1.concat(array2);
-    let array123 = array12.concat(array3);
-    return array123;
     };
+    return [...array1, ...array3, ...array2];
 }
+//day4
+/* takes in a 2 dimensional array, a grid, so each subarray has the same length as the overall array
+    Takes in a parameter for a value that only appears ONCE in the entire grid, 
+    Require one function (move up) and one function (move down) that swap it upper or down the grid
+    If it can't move up or down, no change. */
+function moveUp(array, value) {
+    // intialize coordinates, letter to be swapped;
+    let xCoordinate = 0;
+    let yCoordinate = 0;
+    let letterToBeSwapped = '';
+    //find coordinates
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            if (array[i][j] === value) {
+                xCoordinate = j;
+                yCoordinate = i;
+            }
+        }
+    }
+    //if y coordinate is 0, cannot move up, return unmutated array;
+    if (yCoordinate === 0) return array;
+    //else store the value of the letter to be swapped
+    letterToBeSwapped = array[yCoordinate - 1][xCoordinate];
+    //splice the value one y coordinate up, deleting previous value
+    array[yCoordinate - 1].splice(xCoordinate, 1, value);
+    //splice the value at original coordinates, deleting previous value
+    array[yCoordinate].splice(xCoordinate, 1, letterToBeSwapped)
+    return array;
+}
+function 
