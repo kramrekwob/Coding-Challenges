@@ -98,4 +98,40 @@ function moveUp(array, value) {
     array[yCoordinate].splice(xCoordinate, 1, letterToBeSwapped)
     return array;
 }
-function 
+//still need the move down function
+function moveDown(array,value) {
+    let xCoordinate =0;
+    let yCoordinate =0;
+    let letterToBeSwapped= '';
+    //find coordinates
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            if (array[i][j] === value) {
+                xCoordinate = j;
+                yCoordinate = i;
+            }
+        }
+    }
+    //if y coordinate is 2, cannot move up, return unmutated array;
+    if (yCoordinate === 2) return array;
+    //else store the value of the letter to be swapped
+    letterToBeSwapped = array[yCoordinate + 1][xCoordinate];
+    //splice the value one y coordinate up, deleting previous value
+    array[yCoordinate + 1].splice(xCoordinate, 1, value);
+    //splice the value at original coordinates, deleting previous value
+    array[yCoordinate].splice(xCoordinate, 1, letterToBeSwapped)
+    return array;
+}
+//day 5 i day late, shuffle array, then look up shuffling algorithms
+function shuffleArray(array) {
+    let curId = array.length;
+    // There remain elements to shuffle
+    while (0 !== curId) {
+      // Pick a remaining element
+      let randId = Math.floor(Math.random() * curId);
+      curId -= 1;
+      // Swap it with the current element.
+      let tmp = array[curId];
+      array[curId] = array[randId];
+      array[randId] = tmp;
+    }
