@@ -24,3 +24,18 @@ var longestCommonPrefix = function(strs) {
     }
     return strs[0];
   };
+  
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+ var longestCommonPrefix = function(strs) {
+  let longest = 0;
+  //check each letter is the same as all the others in the array
+  for (let i=0; i<strs[0].length; i++){
+      if (strs.every(word => word[i] === strs[0][i])) longest++
+      else break;
+  }
+  //return the longest slice
+  return strs[0].slice(0,longest)
+};
