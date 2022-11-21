@@ -1,3 +1,3 @@
 # Coding-Challenges
-Codewars, leetcode, and hackerrank challenges
-sorted by difficulty
+Codewars, Leetcode, and Other Challenges.
+Codewars sorted by difficulty 8yku Easiest to 1kyu Hardest
