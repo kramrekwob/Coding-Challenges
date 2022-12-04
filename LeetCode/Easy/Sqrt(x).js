@@ -3,3 +3,4 @@ const mySqrt = function(x) {
     while (result*result <= x) result++;
     return result - 1;
 };
+// O sqrt(N) complexity
